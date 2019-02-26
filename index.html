@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<title>Desafio</title>
+
+	<meta charset="utf-8">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+	<script src="dist/jquery.inputmask.bundle.js"></script>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+	    	$("#preco").inputmask('decimal', {
+                'alias': 'numeric',
+                'groupSeparator': '.',
+                'autoGroup': true,
+                'digits': 2,
+                'radixPoint': ",",
+                'digitsOptional': false,
+                'allowMinus': false,
+                'prefix': 'R$ ',
+                'placeholder': ''
+    		});
+
+    		$("#unidadeMedida").change(function(){
+    			switch($("#unidadeMedida").val()){
+    				case '1': alert('aaa');
+    					$("#quantidade").inputmask
+    				break;
+    				case '2': alert('abbb');
+    				break;
+    				case '3': alert('accc');
+    				break;
+    			}
+    		});
+
+		});
+	</script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-static-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <img src="imagens/icone_twitter.png" />
+	        </div>
+	        
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="#">Sair</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+
+	<div class="container">
+		<div class="col-md-3">
+	    	<div class="panel panel-default">
+	    		<div class="panel-body">
+	    			Páginas
+	    			<ul class="list-group">
+  						<li class="list-group-item">
+  							<a href="index.html">Cadastro de Itens</a>
+  						</li>
+  						<li class="list-group-item">
+  							<a href="">Listagem</a>
+  						</li>
+
+					</ul>
+	    		</div>
+	    	</div>
+	    </div>
+
+	    <div class="col-md-9">
+	    	<div class="panel panel-default">
+	    		<div class="panel-body">
+	    			<form id="form_cadastro" class="form-group">
+
+	    				<label for="nomeItem">Nome do Item</label>
+	    				<input type="text" class="form-control" name="" maxlength="50" id="nomeItem">
+	    				
+
+	    				<label for="unidadeMedida">Unidade de Medida</label>
+	    				<select class="form-control" id="unidadeMedida">
+    						<option value="1">Litro</option>
+    						<option value="2">Kilograma</option>
+    						<option value="3">Unidade</option>
+	    				</select>
+
+	    				<label for="quantidade">Quantidade</label>
+	    				<input type="number" class="form-control" name="" id="quantidade">
+	    				
+
+	    				<label for="preco">Preço</label>
+	    				<input type="text" class="form-control" name="preco" id="preco">
+
+	    				<div class="checkbox">
+						  <label><input type="checkbox" value="true">Produto Perecível</label>
+						</div>
+
+	    				<label for="dataValidade">
+	    					Data de Validade
+	    					<input type="date" class="form-control" name="" id="dataValidade">
+	    				</label>
+
+	    				<label for="dataFabricao">
+	    					Data de Fabricação
+	    					<input type="date" class="form-control" name="" id="dataFabricao">
+	    				</label>
+
+	    				<br><br>
+
+	    				<center>
+	    					<button id="btn_cadastrar" class="btn btn-success" type="button">Cadastrar</button>
+	    					<button id="btn_cancelar" class="btn btn-danger" type="button">Cancelar</button>
+						</center>
+	    				<!--<input id="texto_tweet" type="text" class="form-control" name="texto_tweet" placeholder="O que está acontecendo agora?" maxlength="140">
+	    				<span class="input-group-btn">
+	    					<button id="btn_tweet" class="btn btn-default" type="button">Tweet</button>
+	    				</span>-->
+
+	    			</form>
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+
+</body>
+</html>
