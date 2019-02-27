@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<title>Desafio</title>
+
+	<meta charset="utf-8">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+	<script src="dist/jquery.inputmask.bundle.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			
+	    	listarItens();
+
+	    	$(".btnExcluir").click(function(){
+	    		var itens = JSON.parse(localStorage.getItem("itens"));
+	    		if(confirm("Deseja realmente exluir este item?")){
+		    		itens.splice(parseInt($(this).attr("id")), 1);
+		    		localStorage.setItem("itens", JSON.stringify(itens));
+		    		alert("Item removido com sucesso!");
+		    	}
+		    	 $(this).closest('.row').remove();
+	    	});
+
+		});
+
+		function listarItens(){
+			var itens = JSON.parse(localStorage.getItem("itens"));
+			for(var i in itens){
+				var item = JSON.parse(itens[i]);
+
+				$("#listagem tbody").append("<tr class='row'>"+
+				"<td>"+item.nome+"</td>"+
+				"<td>"+item.unidade+"</td>"+
+				"<td>"+item.quantidade+"</td>"+
+				"<td>"+item.preco+"</td>"+
+				"<td>"+item.perecivel+"</td>"+
+				"<td>"+item.dataValidade+"</td>"+
+				"<td>"+item.dataFabricacao+"</td>"+
+				"<td>"+"<a href='index.html' class='btnEditar' id='"+i+"'>Editar</a>"+"</td>"+
+				"<td>"+"<a href='#' class='btnExcluir' id='"+i+"'>Excluir</a>"+"</td>"+
+				"</tr>");
+
+			}
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default navbar-static-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <img src="#" />
+	        </div>
+	        
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="#">Sair</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </nav>
+
+	<div class="container">
+		<div class="col-md-3">
+	    	<div class="panel panel-default">
+	    		<div class="panel-body">
+	    			<h4>Páginas</h4>
+	    			<ul class="list-group">
+  						<li class="list-group-item">
+  							<a href="index.html">Cadastro de Itens</a>
+  						</li>
+  						<li class="list-group-item">
+  							<a href="listagem.html">Listagem</a>
+  						</li>
+
+					</ul>
+	    		</div>
+	    	</div>
+	    </div>
+
+	    <div class="col-md-9">
+	    	<div class="panel panel-default">
+	    		<div class="panel-body">
+	    			<div class="table-responsive">
+	    				<table id="listagem" class="table table-hover">
+	    					<thead>
+		    					<tr class="row">
+		    						<th>Nome do Item</th>
+		    						<th>Unidade</th>
+		    						<th>Quantidade</th>
+		    						<th>Preço</th>
+		    						<th>Perecível</th>
+		    						<th>Data de Validade</th>
+		    						<th>Data de Fabricação</th>
+		    						<th></th>
+		    						<th></th>
+		    					</tr>
+	    					</thead>
+	    					<tbody>
+
+	    					</tbody>
+	    				</table>
+	    			</div>
+
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+
+</body>
+</html>
