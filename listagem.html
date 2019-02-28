@@ -27,6 +27,10 @@
 		    	 $(this).closest('.row').remove();
 	    	});
 
+	    	$(".btnEditar").click(function(){
+	    		localStorage.setItem("editar", $(this).attr("id"));
+	    	});
+
 		});
 
 		function listarItens(){

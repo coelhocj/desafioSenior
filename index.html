@@ -15,6 +15,8 @@
 
 		$(document).ready(function(){
 
+			verificarEdicao();
+
 	    	$("#preco").inputmask('decimal', {
                 'alias': 'numeric',
                 'groupSeparator': '.',
@@ -84,6 +86,23 @@
 				itens.push(item);
 				localStorage.setItem("itens", JSON.stringify(itens));
 				alert("Item inserido!");
+		}
+
+		function verificarEdicao(){
+			var indiceEdicao = localStorage.getItem("editar");
+			localStorage.setItem("editar", null);
+			if(indiceEdicao != null){
+					indiceEdicao = parseInt(indiceEdicao);
+					var itens = JSON.parse(localStorage.getItem("itens"));
+					var item = JSON.parse(itens[indiceEdicao]);
+					$("#nomeItem").val(item.nome);
+					$("#unidadeMedida").val(item.unidade);
+					$("#quantidade").val(item.quantidade);
+					$("#preco").val(item.preco);
+					$("#perecivel").val(item.perecivel);
+					$("#dataValidade").val(item.dataValidade);
+					$("#dataFabricacao").val(item.dataFabricacao);
+			}
 		}
 
 	</script>
